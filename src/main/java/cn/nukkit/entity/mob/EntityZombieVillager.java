@@ -64,7 +64,7 @@ public class EntityZombieVillager extends EntityMob implements EntitySmite {
             if (this.getLevel().getTime() > 0 && this.getLevel().getTime() <= 12000)
                 if (!this.hasEffect(Effect.FIRE_RESISTANCE))
                     if (!this.isInsideOfWater())
-                        if (!this.isUnderBlock())
+                        if (this.isUnderStrongLight())
                             if (!this.isOnFire())
                                 this.setOnFire(1);
         return super.onUpdate(currentTick);

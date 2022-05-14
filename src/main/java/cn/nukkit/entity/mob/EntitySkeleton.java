@@ -4,7 +4,6 @@ import cn.nukkit.Player;
 import cn.nukkit.api.PowerNukkitOnly;
 import cn.nukkit.api.PowerNukkitXOnly;
 import cn.nukkit.api.Since;
-import cn.nukkit.block.BlockID;
 import cn.nukkit.entity.EntitySmite;
 import cn.nukkit.item.Item;
 import cn.nukkit.level.Level;
@@ -74,7 +73,7 @@ public class EntitySkeleton extends EntityMob implements EntitySmite {
             if (this.getLevel().getTime() > 0 && this.getLevel().getTime() <= 12000)
                 if (!this.hasEffect(Effect.FIRE_RESISTANCE))
                     if (!this.isInsideOfWater())
-                     if (!this.isUnderBlock())
+                     if (this.isUnderStrongLight())
                         if (!this.isOnFire())
                                 this.setOnFire(1);
         return super.onUpdate(currentTick);
